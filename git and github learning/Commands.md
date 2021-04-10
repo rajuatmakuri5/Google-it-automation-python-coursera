@@ -8,8 +8,9 @@ git init  					| Navigate to a folder in your local machine, and run the command
 git status  				| It will check call the files in git repository (the folder where the git initialized)
 git add  					| Add file to staging area then we can commit it
 git add --all 				| Add all files to staging area
-git rm --cached filename    | remove a file from staging area, this will become un-tracked again
+git rm --cached filename    | you just added a new file to staging area and you want to remove this file from staging area, this will become un-tracked again
 git rm --cached *			| remove all file from staging area
+git reset HEAD file			| if a file in staging area is modified and you want to remove it from staging area 
 git commit 					| will save all staged changes, along with a brief description from the user, in a “commit” to the local repository. git commit is like a snapshot of your project. you can recall the commit or revert changes later. git commit will commit all staged files with their changes, if you dont want apply commit on a particular file, you have to unstage the file first.
 git commit -m "message" 	| commit the staged files, by default it will launch a text editor where you need to type your commit message
 git commit -a -m "message" 	| commit all the staged files but it only includes the tracked files ( means the files the added with git add command)
