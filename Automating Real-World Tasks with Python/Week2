@@ -1,0 +1,18 @@
+:~$ cat run.py
+#! /usr/bin/env python3
+import os
+import requests
+
+
+directory = '/data/feedback/'
+for file in os.listdir(directory):
+    with open(directory+file) as f:
+       lines = f.readlines()
+       feedback_dict = {}
+       feedback_dict["title"] = lines[0]
+       feedback_dict["name"] = lines[1]
+       feedback_dict["date"] = lines[2]
+       feedback_dict["feedback"] = lines[3]
+       resp = requests.post("http://104.198.228.226/feedback/", data=feedback_dict)
+       print(resp.request.body)
+       print(resp.status_code)
