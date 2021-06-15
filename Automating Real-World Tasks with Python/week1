@@ -1,1 +1,15 @@
+cat image-fixer.py
+#!/usr/bin/python3
+from PIL import Image
+import os
 
+directory = '/home/student-00-f07bd5f6a4fa/images'
+new_dir = '/opt/icons/'
+filelist = os.listdir(directory)
+if '.DS_Store' in filelist:
+  filelist.remove('.DS_Store')
+for img in filelist:
+   imgfile = os.path.join(directory,img)
+   im = Image.open(imgfile)
+   im.rotate(270).resize((128,128)).convert("RGB").save(new_dir+img, "JPEG")
+student-00-f07bd5f6a4fa@linux-instance:~$
